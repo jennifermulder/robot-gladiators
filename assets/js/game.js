@@ -16,9 +16,10 @@ var enemyAttack = 12;
 
 // function expression
 var fight = function(enemyNames) {
-    // Alert users that they are starting the round
-    window.alert("Welcome to Robot Gladiators!");
-
+    // repeat and execute as long as the enemy robot is alive
+    while(enemyHealth > 0) {
+        // Alert users that they are starting the round
+  
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
   
 // if player choses to fight, then fight
@@ -53,27 +54,32 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
     else {
         window.alert(playerName + " still has " + playerHealth + " health left.");
     }
+
     // if player choses to skip
-} else if (promptFight === "skip" || promptFight === "SKIP") {
- // confirm user wants to skip
- var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+    } else if (promptFight === "skip" || promptFight === "SKIP") {
+    // confirm user wants to skip
+    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
- // if yes (true), leave fight
- if (confirmSkip) {
-   window.alert(playerName + " has decided to skip this fight. Goodbye!");
-   // subtract money from playerMoney for skipping
-   playerMoney = playerMoney - 2;
-   }
- // if no (false), ask question again by running fight() again
- else {
-   fight();
-   }
-}
-else {
-    window.alert("You need to pick a valid option. Try again!");
-}
-};
+    // if yes (true), leave fight
+    if (confirmSkip) {
+    window.alert(playerName + " has decided to skip this fight. Goodbye!");
+    // subtract money from playerMoney for skipping
+    playerMoney = playerMoney - 2;
+    }
+    // if no (false), ask question again by running fight() again
+    else {
+    fight();
+    }
+    }
+    else {
+        window.alert("You need to pick a valid option. Try again!");
+    }
+    };
 
+}
+    
 for(var i = 0; i < enemyNames.length; i++) {
-    fight(enemyNames[i]);   
+    var pickedEnemyName = enemyNames[i];
+    enemyHealth = 50;
+    fight(pickedEnemyName);   
   }
