@@ -93,8 +93,7 @@ var startGame = function() {
         enemyHealth = 50;
   
         fight(pickedEnemyName);
-        // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
-        endGame();
+        
       
         // if we're not at the last enemy in the array
         if (playerHealth > 0 && i < enemyNames.length - 1) {
@@ -113,6 +112,8 @@ var startGame = function() {
         break;
     }
     }
+    // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
+    endGame();
   };
 
   // function to end the entire game
